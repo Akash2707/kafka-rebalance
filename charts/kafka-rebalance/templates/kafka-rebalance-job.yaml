@@ -1,4 +1,3 @@
-    
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -18,29 +17,5 @@ spec:
         image: { { .Values.kafka_rebalance_image | quote } }
         imagePullPolicy: IfNotPresent
         command:
-          [
-            "kafkakit-prometheus-metricsfetcher",
-            "--zk-addr",
-            {{ .Values.zk_url | quote }},
-            "--prometheus-url",
-            {{ .Values.prometheus_url | quote }},
-            "--broker-storage-query",
-            {{ .Values.broker_storage_query | quote }},
-            "--partition-size-query",
-            {{ .Values.partition_size_query | quote }},
-            && ,
-            "topicmappr",
-            "rebalance",
-            "--zk-addr",
-            {{ .Values.zk_url | quote }},
-            "--topics",
-            {{ .Values.topics | quote }},
-            "--broker",
-            {{ .Values.brokers }},
-            "--tolerance",
-            "0.2",
-            "|",
-            "grep",
-            "-v",
-            "no-op",
-          ]
+          ["kafkakit-prometheus-metricsfetcher","--zk-addr",{{ .Values.zk_url | quote }},"--prometheus-url",{{ .Values.prometheus_url | quote }},"--broker-storage-query",{{ .Values.broker_storage_query | quote }},"--partition-size-query",{{ .Values.partition_size_query | quote }},&& ,
+            "topicmappr","rebalance","--zk-addr",{{ .Values.zk_url | quote }},"--topics",{{ .Values.topics | quote }},"--broker",{{ .Values.brokers }},"--tolerance","0.2","|","grep","-v","no-op"]
