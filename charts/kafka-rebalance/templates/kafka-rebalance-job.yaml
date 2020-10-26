@@ -16,4 +16,4 @@ spec:
       - name: kafka-rebalance
         image: {{ .Values.kafka_rebalance_image | quote }}
         imagePullPolicy: IfNotPresent
-        command: ["bash","-c","kafkakit-prometheus-metricsfetcher --zk-addr {{.Values.zk_url | quote}} --prometheus-url {{ .Values.prometheus_url | quote }} --broker-storage-query {{ .Values.broker_storage_query | quote}} --partition-size-query {{.Values.partition_size_query | quote}}"]
+        command: ["/bin/bash","-c","kafkakit-prometheus-metricsfetcher --zk-addr {{.Values.zk_url | quote}} --prometheus-url {{ .Values.prometheus_url | quote }} --broker-storage-query {{ .Values.broker_storage_query | quote}} --partition-size-query {{.Values.partition_size_query | quote}}"]
