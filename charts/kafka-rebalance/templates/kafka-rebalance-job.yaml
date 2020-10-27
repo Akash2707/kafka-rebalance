@@ -14,6 +14,6 @@ spec:
       restartPolicy: OnFailure
       containers:
       - name: kafka-rebalance
-        image: {{ .Values.global.kafka_rebalance_image | quote }}
+        image: {{ .Values.kafka_rebalance_image | quote }}
         imagePullPolicy: IfNotPresent
         command: ["topicmappr","rebalance","--zk-addr",{{ .Values.zk_url | quote }},"--topics",{{ .Values.topics | quote }},"--brokers",{{ .Values.brokers | quote }},"--tolerance","0.2","|","grep -v","no-op"]
