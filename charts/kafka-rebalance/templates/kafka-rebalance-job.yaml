@@ -26,4 +26,4 @@ spec:
         - name : PARTITION_QUERY
           value: {{.Values.partition_size_query | quote}}
         args: 
-        - topicmappr rebalance --zk-addr {{.Values.zk_url | quote}} --topics {{ .Values.topics | quote }} --broker {{ .Values.brokers }} --tolerance 0.2 | grep -v no-op 
+        - topicmappr rebalance --zk-addr {{.Values.zk_url | quote}} --topics {{ .Values.topics | quote }} --brokers {{ .Values.brokers }} --tolerance 0.2 | grep -v no-op 
