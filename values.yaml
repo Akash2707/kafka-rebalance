@@ -1,5 +1,4 @@
 ---
-kafka-rebalance:
-  kafka_rebalance_image: "aakash2707/kafka_rebalance:v7"
-  broker_storage_query: 'avg(label_replace(kubelet_volume_stats_available_bytes{namespace="fmm1",persistentvolumeclaim=~"data-volume-kafka-[0-9]+"},"broker_id","$1","persistentvolumeclaim","data-volume-kafka-([0-9]+)")) by (broker_id)'
-  partition_size_query: 'max(kafka_log_size{namespace="fmm1"}) by (topic,partition)'
+global:
+  kafka_rebalance_image: "aakash2707/kafka_rebalance:v1"
+  zk_url: "zookeeper-service.fmm1.svc.cluster.local:2181"
