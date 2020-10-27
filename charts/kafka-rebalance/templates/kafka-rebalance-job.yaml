@@ -25,4 +25,4 @@ spec:
           value: {{ .Values.broker_storage_query | quote}}
         - name : PARTITION_QUERY
           value: {{.Values.partition_size_query | quote}}
-        command: [ "topicmappr","rebalance","--zk-addr",{{ .Values.zk_url | quote }},"--topics",{{ .Values.topics | quote }},"--broker",{{ .Values.brokers }},"--tolerance","0.2","|","grep -v","no-op"]
+        command: [ "topicmappr","rebalance","--zk-addr",{{ .Values.zk_url | quote }},"--topics",{{ .Values.topics | quote }},"--broker",{{ .Values.brokers | quote }},"--tolerance","0.2","|","grep -v","no-op"]
