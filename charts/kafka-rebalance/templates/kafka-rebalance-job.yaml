@@ -1,25 +1,17 @@
-apiVersion: apps/v1
-kind: Deployment 
+apiVersion: batch/v1
+kind: Job
 metadata:
-  name: kafka-rebalance
-  labels:
-     app: kafka-rebalance
+  name: kafka-rebalance-job
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: kafka-rebalance
-#   parallelism: 1
-#   completions: 1
-#   backoffLimit: 5
-#   activeDeadlineSeconds: 240
+  parallelism: 1
+  completions: 1
+  backoffLimit: 5
+  activeDeadlineSeconds: 240
   template:
     metadata:
       name: kafka-rebalance-job
-      labels:
-        app: kafka-rebalance    
     spec:
-#       restartPolicy: OnFailure
+      restartPolicy: OnFailure
       containers:
       - name: kafka-rebalance
         image: {{ .Values.global.kafka_rebalance_image | quote }}
