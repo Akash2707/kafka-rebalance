@@ -17,15 +17,15 @@ spec:
         image: {{ .Values.global.kafka_rebalance_image | quote }}
         imagePullPolicy: IfNotPresent
         env:
-        - name: KAFKA_ENDPOINT
-          value: {{ .Values.environment.kafkaEndpoint }}
+        # - name: KAFKA_ENDPOINT
+        #   value: {{ .Values.kafkaEndpoint }}
         - name: KAFKA_TOPICS
-          value: {{ .Values.environment.topics }}    
+          value: {{ .Values.topics }}    
         - name: BROKERS
-          value: {{ .Values.environment.brokers }}        
+          value: {{ .Values.brokers }}        
         - name: PARTITION_THRESHOLD
-          value: {{ .Values.environment.partitionThreshold }}    
+          value: {{ .Values.partitionThreshold }}    
         - name: STORAG_THRESHOLD
-          value: {{ .Values.environment.storageThreshold }}    
+          value: {{ .Values.storageThreshold }}    
         - name: TOLERANCE
-          value: {{ .Values.environment.tolerance }}        
+          value: {{ .Values.tolerance }}          
