@@ -20,12 +20,12 @@ spec:
         # - name: KAFKA_ENDPOINT
         #   value: {{ .Values.kafkaEndpoint }}
         - name: KAFKA_TOPICS
-          value: {{ .Values.topics }}    
+          value: {{ .Values.topics | quote }}    
         - name: BROKERS
-          value: {{ .Values.brokers }}        
+          value: {{ .Values.brokers | quote }}        
         - name: PARTITION_THRESHOLD
-          value: {{ .Values.partitionThreshold }}    
+          value: {{ .Values.partitionThreshold | quote  }}    
         - name: STORAG_THRESHOLD
-          value: {{ .Values.storageThreshold }}    
+          value: {{ .Values.storageThreshold | quote }}    
         - name: TOLERANCE
-          value: {{ .Values.tolerance }}          
+          value: {{ .Values.tolerance | quote }}          
