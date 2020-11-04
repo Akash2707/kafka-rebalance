@@ -16,5 +16,3 @@ spec:
       - name: kafka-rebalance
         image: {{ .Values.global.kafka_rebalance_image | quote }}
         imagePullPolicy: IfNotPresent
-        command: ["topicmappr","rebalance","--zk-addr", {{.Values.global.zk_url | quote}},"--topics",{{ .Values.topics | quote }},"--brokers",{{ .Values.brokers | quote }},"--partition-size-threshold",{{ .Values.partitionThreshold | quote }},"--storage-threshold",{{ .Values.storageThreshold | quote }},"--tolerance",{{ .Values.tolerance | quote }},"--verbose","--ignore-warns","|","grep -v","no-op"]
-        args: ["cat fmm-metrics.json"]
