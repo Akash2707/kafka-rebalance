@@ -16,3 +16,16 @@ spec:
       - name: kafka-rebalance
         image: {{ .Values.global.kafka_rebalance_image | quote }}
         imagePullPolicy: IfNotPresent
+        env:
+        - name: KAFKA_ENDPOINT
+          value: {{ .Values.environment.kafkaEndpoint }}
+        - name: KAFKA_TOPICS
+          value: {{ .Values.environment.topics }}    
+        - name: BROKERS
+          value: {{ .Values.environment.brokers }}        
+        - name: PARTITION_THRESHOLD
+          value: {{ .Values.environment.partitionThreshold }}    
+        - name: STORAG_THRESHOLD
+          value: {{ .Values.environment.storageThreshold }}    
+        - name: TOLERANCE
+          value: {{ .Values.environment.tolerance }}        
