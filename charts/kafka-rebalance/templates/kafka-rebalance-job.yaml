@@ -19,6 +19,8 @@ spec:
         env:
         # - name: KAFKA_ENDPOINT
         #   value: {{ .Values.kafkaEndpoint }}
+        - name: ZK_URL
+          value: {{ .Values.global.zk_url | quote }}             
         - name: KAFKA_TOPICS
           value: {{ .Values.topics | quote }}    
         - name: BROKERS
