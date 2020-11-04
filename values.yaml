@@ -1,4 +1,4 @@
 ---
 global:
-  kafka_rebalance_image: "aakash2707/kafka_rebalance:v1"
+  kafka_rebalance_image: "aakash2707/kafka_rebalance:v8"
   zk_url: "zookeeper-service.fmm1.svc.cluster.local:2181"
