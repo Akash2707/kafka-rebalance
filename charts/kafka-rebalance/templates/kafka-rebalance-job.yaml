@@ -30,4 +30,15 @@ spec:
         - name: STORAG_THRESHOLD
           value: {{ .Values.storageThreshold | quote }}    
         - name: TOLERANCE
-          value: {{ .Values.tolerance | quote }}          
+          value: {{ .Values.tolerance | quote }}
+        - name: KAFKA_SASL_ENABLED
+          value: {{ .Values.environment.kafkaSasl.enabled | quote }}
+        - name: KAFKA_SASL_PROTOCOL
+          value: {{ .Values.environment.kafkaSasl.protocol | quote }}
+        - name: KAFKA_SASL_MECHANISM
+          value: {{ .Values.environment.kafkaSasl.mechanism | quote }}
+        - name: KAFKA_SASL_USERNAME
+          value: {{ .Values.environment.kafkaSasl.username | quote }}
+        - name: KAFKA_SASL_PASSWORD
+          value: {{ .Values.environment.kafkaSasl.password | quote }}                    
+          
