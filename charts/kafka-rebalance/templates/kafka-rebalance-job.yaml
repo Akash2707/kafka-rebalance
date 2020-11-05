@@ -30,7 +30,7 @@ spec:
         - name: TOLERANCE
           value: {{ .Values.tolerance | quote }}
         - name: KAFKA_ENDPOINT
-          value: {{ .Values.environment.kafkaEndpoint }}          
+          value: {{ .Values.environment.kafkaEndpoint | quote }}          
         - name: KAFKA_SASL_ENABLED
           value: {{ .Values.environment.kafkaSasl.enabled | quote }}
         - name: KAFKA_SASL_PROTOCOL
