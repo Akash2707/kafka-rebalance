@@ -2,3 +2,12 @@
 global:
   kafka_rebalance_image: "aakash2707/kafka_rebalance:v8"
   zk_url: "zookeeper-service.fmm1.svc.cluster.local:2181"
+
+environment:
+  kafkaEndpoint: kafka-internal-service:9094
+  kafkaSasl:
+    enabled: false
+    protocol: SASL_PLAINTEXT
+    mechanism: SCRAM-SHA-256
+    username: username
+    password: password
